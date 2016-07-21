@@ -150,7 +150,8 @@ namespace XYORAS_Pokemon_Link_Tool
             }
 		}
 		private void Dump_link_data()
-		{	if (savegamename.Text.Length < 1) return;
+		{	
+			if (savegamename.Text.Length < 1) return;
             SaveFileDialog saveFD = new SaveFileDialog();
             //saveFD.InitialDirectory = "c:\\";
             saveFD.Filter = "Pokémon Link Data|*.bin|All Files (*.*)|*.*";
@@ -166,7 +167,7 @@ namespace XYORAS_Pokemon_Link_Tool
 	            }
 	            
 	            saveFile.Close();
-	            MessageBox.Show("Pokémon Link data dumped to:\r"+saveFD.FileName+".", "Dump Entralink Forest Data");
+	            MessageBox.Show("Pokémon Link data dumped to:\r"+saveFD.FileName+".");
             }
 		}
 		private void Read_link_data()
@@ -428,9 +429,10 @@ namespace XYORAS_Pokemon_Link_Tool
 			if (pokemonlink.Pokes[index].OT_Intensity > 23)	memory_intensity.SelectedIndex = 24;
 			else	memory_intensity.SelectedIndex = pokemonlink.Pokes[index].OT_Intensity;
 						
-			if (pokemonlink.Pokes[index].OT_Memory > 72) memory_type.SelectedIndex = 73;
+			if (pokemonlink.Pokes[index].OT_Memory > 69) memory_type.SelectedIndex = 70;
 			else	memory_type.SelectedIndex = pokemonlink.Pokes[index].OT_Memory;
-			//memory_textvar.SelectedIndex = pokemonlink.Pokes[index].OT_TextVar;
+			
+			memory_textvar.Value = pokemonlink.Pokes[index].OT_TextVar;
 			
 			switch (index)
 			{
@@ -586,8 +588,26 @@ namespace XYORAS_Pokemon_Link_Tool
 				
 	            //Load pkmlink to editor
                 linkedit_load();
+                save_pl6.Enabled = true;
             }
 
+		}
+		void Save_pl6Click(object sender, EventArgs e)
+		{
+			if (pokemonlink.Data == null) return;
+            SaveFileDialog saveFD = new SaveFileDialog();
+            //saveFD.InitialDirectory = "c:\\";
+            saveFD.Filter = "Pokémon Link Data|*.bin|All Files (*.*)|*.*";
+            if (saveFD.ShowDialog() == DialogResult.OK)
+            {
+	            System.IO.FileStream saveFile;
+	            saveFile = new FileStream(saveFD.FileName, FileMode.Create);            
+	            //Write file
+	            saveFile.Write(pokemonlink.Data, 0, 0xA47);	            
+	            saveFile.Close();
+	            
+	            MessageBox.Show("Pokémon Link data saved to:\r"+saveFD.FileName+".");
+            }
 		}
 
 	}

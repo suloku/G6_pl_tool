@@ -188,7 +188,7 @@ namespace XYORAS_Pokemon_Link_Tool
 		private System.Windows.Forms.Label label55;
 		private System.Windows.Forms.Label label54;
 		private System.Windows.Forms.Label label53;
-		private System.Windows.Forms.ComboBox memory_textvar;
+		private System.Windows.Forms.NumericUpDown memory_textvar;
 		private System.Windows.Forms.ComboBox memory_type;
 		private System.Windows.Forms.ComboBox memory_feeling;
 		private System.Windows.Forms.ComboBox memory_intensity;
@@ -275,11 +275,11 @@ namespace XYORAS_Pokemon_Link_Tool
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.pkm_groupBox = new System.Windows.Forms.GroupBox();
+			this.memory_textvar = new System.Windows.Forms.NumericUpDown();
 			this.label56 = new System.Windows.Forms.Label();
 			this.label55 = new System.Windows.Forms.Label();
 			this.label54 = new System.Windows.Forms.Label();
 			this.label53 = new System.Windows.Forms.Label();
-			this.memory_textvar = new System.Windows.Forms.ComboBox();
 			this.memory_type = new System.Windows.Forms.ComboBox();
 			this.memory_feeling = new System.Windows.Forms.ComboBox();
 			this.memory_intensity = new System.Windows.Forms.ComboBox();
@@ -393,6 +393,7 @@ namespace XYORAS_Pokemon_Link_Tool
 			((System.ComponentModel.ISupportInitialize)(this.cnt_3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.met_level)).BeginInit();
 			this.pkm_groupBox.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.memory_textvar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.formindex)).BeginInit();
 			this.groupBox6.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -2966,11 +2967,11 @@ namespace XYORAS_Pokemon_Link_Tool
 			// 
 			// pkm_groupBox
 			// 
+			this.pkm_groupBox.Controls.Add(this.memory_textvar);
 			this.pkm_groupBox.Controls.Add(this.label56);
 			this.pkm_groupBox.Controls.Add(this.label55);
 			this.pkm_groupBox.Controls.Add(this.label54);
 			this.pkm_groupBox.Controls.Add(this.label53);
-			this.pkm_groupBox.Controls.Add(this.memory_textvar);
 			this.pkm_groupBox.Controls.Add(this.memory_type);
 			this.pkm_groupBox.Controls.Add(this.memory_feeling);
 			this.pkm_groupBox.Controls.Add(this.memory_intensity);
@@ -3060,6 +3061,18 @@ namespace XYORAS_Pokemon_Link_Tool
 			this.pkm_groupBox.TabStop = false;
 			this.pkm_groupBox.Text = "Pokemon Information";
 			// 
+			// memory_textvar
+			// 
+			this.memory_textvar.Location = new System.Drawing.Point(646, 506);
+			this.memory_textvar.Maximum = new decimal(new int[] {
+			65535,
+			0,
+			0,
+			0});
+			this.memory_textvar.Name = "memory_textvar";
+			this.memory_textvar.Size = new System.Drawing.Size(139, 20);
+			this.memory_textvar.TabIndex = 135;
+			// 
 			// label56
 			// 
 			this.label56.Location = new System.Drawing.Point(539, 503);
@@ -3096,21 +3109,10 @@ namespace XYORAS_Pokemon_Link_Tool
 			this.label53.Text = "Memory intensity:";
 			this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// memory_textvar
-			// 
-			this.memory_textvar.FormattingEnabled = true;
-			this.memory_textvar.Location = new System.Drawing.Point(645, 505);
-			this.memory_textvar.Name = "memory_textvar";
-			this.memory_textvar.Size = new System.Drawing.Size(140, 21);
-			this.memory_textvar.TabIndex = 130;
-			// 
 			// memory_type
 			// 
 			this.memory_type.FormattingEnabled = true;
 			this.memory_type.Items.AddRange(new object[] {
-			"a certain item",
-			"a certain move",
-			"a Pokémon",
 			"The Pokémon seems to have a good memory, but it doesn’t seem to be able to rememb" +
 				"er...",
 			"{0} met {1} at... {2}. {1} threw a Poké Ball at it, and they started to travel to" +
@@ -14196,24 +14198,23 @@ namespace XYORAS_Pokemon_Link_Tool
 			// 
 			this.groupBox8.Controls.Add(this.pl6_path);
 			this.groupBox8.Controls.Add(this.load_pl6);
-			this.groupBox8.Controls.Add(this.save_pl6);
 			this.groupBox8.Location = new System.Drawing.Point(454, 12);
 			this.groupBox8.Name = "groupBox8";
-			this.groupBox8.Size = new System.Drawing.Size(365, 121);
+			this.groupBox8.Size = new System.Drawing.Size(365, 75);
 			this.groupBox8.TabIndex = 144;
 			this.groupBox8.TabStop = false;
 			this.groupBox8.Text = "Pokémon Link file";
 			// 
 			// pl6_path
 			// 
-			this.pl6_path.Location = new System.Drawing.Point(20, 73);
+			this.pl6_path.Location = new System.Drawing.Point(20, 48);
 			this.pl6_path.Name = "pl6_path";
 			this.pl6_path.Size = new System.Drawing.Size(330, 20);
 			this.pl6_path.TabIndex = 1;
 			// 
 			// load_pl6
 			// 
-			this.load_pl6.Location = new System.Drawing.Point(20, 44);
+			this.load_pl6.Location = new System.Drawing.Point(20, 19);
 			this.load_pl6.Name = "load_pl6";
 			this.load_pl6.Size = new System.Drawing.Size(162, 23);
 			this.load_pl6.TabIndex = 0;
@@ -14224,20 +14225,22 @@ namespace XYORAS_Pokemon_Link_Tool
 			// save_pl6
 			// 
 			this.save_pl6.Enabled = false;
-			this.save_pl6.Location = new System.Drawing.Point(188, 44);
+			this.save_pl6.Location = new System.Drawing.Point(454, 93);
 			this.save_pl6.Name = "save_pl6";
-			this.save_pl6.Size = new System.Drawing.Size(162, 23);
+			this.save_pl6.Size = new System.Drawing.Size(365, 40);
 			this.save_pl6.TabIndex = 4;
-			this.save_pl6.Text = "Save Pokémon Link file";
+			this.save_pl6.Text = "Save Pokémon Link file with changes";
 			this.save_pl6.UseVisualStyleBackColor = true;
+			this.save_pl6.Click += new System.EventHandler(this.Save_pl6Click);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(835, 836);
+			this.ClientSize = new System.Drawing.Size(835, 841);
 			this.Controls.Add(this.groupBox8);
 			this.Controls.Add(this.groupBox7);
+			this.Controls.Add(this.save_pl6);
 			this.Controls.Add(this.groupBox5);
 			this.Controls.Add(this.pkm_groupBox);
 			this.Controls.Add(this.link_group);
@@ -14249,7 +14252,7 @@ namespace XYORAS_Pokemon_Link_Tool
 			this.Controls.Add(this.ev_4);
 			this.Controls.Add(this.ev_5);
 			this.Name = "MainForm";
-			this.Text = "XYORAS Pokemon Link Tool 0.1 by suloku";
+			this.Text = "XYORAS Pokemon Link Tool 0.2 by suloku";
 			((System.ComponentModel.ISupportInitialize)(this.cnt_0)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.iv_hp)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.iv_atk)).EndInit();
@@ -14266,6 +14269,7 @@ namespace XYORAS_Pokemon_Link_Tool
 			((System.ComponentModel.ISupportInitialize)(this.met_level)).EndInit();
 			this.pkm_groupBox.ResumeLayout(false);
 			this.pkm_groupBox.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.memory_textvar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.formindex)).EndInit();
 			this.groupBox6.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
